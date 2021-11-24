@@ -1,3 +1,6 @@
+const button = document.querySelector('#resetbutton');
+button.addEventListener("click", alert('you clicked the button'));
+
 // copied and repurposed from Stack Overflow user Nidhin Joseph
 const container = document.querySelector("#container");
 
@@ -24,3 +27,4 @@ boxes.forEach(box => {
         box.classList.add('activated');
     })
 });
+
