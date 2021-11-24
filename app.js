@@ -15,5 +15,3 @@ boxes.forEach(box => {
         box.classList.add('activated');
     })
 });
-
-// checking if git works
