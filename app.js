@@ -1,19 +1,23 @@
-
-
 // copied and refactored from Stack Overflow user Nidhin Joseph
 const container = document.querySelector("#container");
 
 function makeRows(rows, cols) {
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
-  for (c = 0; c < (rows * cols); c++) {
-    let cell = document.createElement("div");
-    container.appendChild(cell).className = "grid-item";
-  };
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
+    for (c = 0; c < (rows * cols); c++) {
+        let cell = document.createElement("div");
+        container.appendChild(cell).className = "grid-item";
+    };
 };
 
-makeRows(16, 16);
+
 // end of copied and refactored code
+
+
+const resetTheBoard = function () {
+    const newSize = prompt('New board size?');
+    makeRows(newSize, newSize);
+}
 
 const boxes = document.querySelectorAll('#container div');
 boxes.forEach(box => {
@@ -21,7 +25,7 @@ boxes.forEach(box => {
 });
 
 boxes.forEach(box => {
-    box.addEventListener('mouseover', function(){
+    box.addEventListener('mouseover', function () {
         box.classList.remove('inactive');
         box.classList.add('activated');
     })
@@ -29,9 +33,4 @@ boxes.forEach(box => {
 
 
 const button = document.querySelector('#resetbutton');
-button.addEventListener("click", boxes.forEach(box => {
-    box.addEventListener('mouseover', function(){
-        box.classList.remove('activated');
-        box.classList.add('inactive');
-    })
-}));
+button.addEventListener("click", resetTheBoard);
