@@ -1,6 +1,6 @@
 
 
-// copied and repurposed from Stack Overflow user Nidhin Joseph
+// copied and refactored from Stack Overflow user Nidhin Joseph
 const container = document.querySelector("#container");
 
 function makeRows(rows, cols) {

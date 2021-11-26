@@ -8,7 +8,7 @@ button{
     margin: 20px;
 }
 
-/* Copied and repurposed from Stack Overflow user Nidhin Joseph */
+/* Copied and refactored from Stack Overflow user Nidhin Joseph */
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
