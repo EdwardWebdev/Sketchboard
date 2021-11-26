@@ -10,19 +10,35 @@ function makeRows(rows, cols) {
     };
 };
 
+makeRows(16, 16);
+
 
 // end of copied and refactored code
+
+const boxes = document.querySelectorAll('#container div');
+const initialize = function () {
+    boxes.forEach(box => {
+        box.classList.remove('activated');
+        box.classList.add('inactive');
+    })
+}
+initialize();
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
 
 
 const resetTheBoard = function () {
     const newSize = prompt('New board size?');
+    removeAllChildNodes(container);
     makeRows(newSize, newSize);
+    initialize();
 }
 
-const boxes = document.querySelectorAll('#container div');
-boxes.forEach(box => {
-    box.classList.add('inactive');
-});
+
 
 boxes.forEach(box => {
     box.addEventListener('mouseover', function () {
