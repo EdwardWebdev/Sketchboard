@@ -43,10 +43,14 @@ function removeAllChildNodes(parent) {
 
 const resetTheBoard = function () {
     const newSize = prompt('New board size?');
+    if (newSize > 100) {
+        newSize = alert('Too big! Reset again with a number less than 100');
+    }
     removeAllChildNodes(container);
     makeRows(newSize, newSize);
     initialize();
     addSketching();
+
 }
 
 const button = document.querySelector('#resetbutton');
