@@ -15,14 +15,24 @@ makeRows(16, 16);
 
 // end of copied and refactored code
 
-const boxes = document.querySelectorAll('#container div');
 const initialize = function () {
-    boxes.forEach(box => {
+    document.querySelectorAll('#container div').forEach(box => {
         box.classList.remove('activated');
         box.classList.add('inactive');
     })
 }
 initialize();
+
+
+const addSketching = () => {
+    document.querySelectorAll('#container div').forEach(box => {
+        box.addEventListener('mouseover', function () {
+            box.classList.remove('inactive');
+            box.classList.add('activated');
+        })
+    });
+}
+addSketching();
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -36,17 +46,8 @@ const resetTheBoard = function () {
     removeAllChildNodes(container);
     makeRows(newSize, newSize);
     initialize();
+    addSketching();
 }
-
-
-
-boxes.forEach(box => {
-    box.addEventListener('mouseover', function () {
-        box.classList.remove('inactive');
-        box.classList.add('activated');
-    })
-});
-
 
 const button = document.querySelector('#resetbutton');
 button.addEventListener("click", resetTheBoard);
